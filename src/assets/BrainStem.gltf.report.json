@@ -1,0 +1,46 @@
+{
+    "uri": "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/BrainStem/glTF/BrainStem.gltf",
+    "mimeType": "model/gltf+json",
+    "validatorVersion": "2.0.0-dev.3.10",
+    "validatedAt": "2025-01-27T06:40:59.973Z",
+    "issues": {
+        "numErrors": 0,
+        "numWarnings": 1,
+        "numInfos": 0,
+        "numHints": 0,
+        "messages": [
+            {
+                "code": "NODE_SKINNED_MESH_NON_ROOT",
+                "message": "Node with a skinned mesh is not root. Parent transforms will not affect a skinned mesh.",
+                "severity": 1,
+                "pointer": "/nodes/1"
+            }
+        ],
+        "truncated": false
+    },
+    "info": {
+        "version": "2.0",
+        "generator": "COLLADA2GLTF",
+        "resources": [
+            {
+                "pointer": "/buffers/0",
+                "mimeType": "application/gltf-buffer",
+                "storage": "external",
+                "uri": "BrainStem0.bin",
+                "byteLength": 3105104
+            }
+        ],
+        "animationCount": 1,
+        "materialCount": 59,
+        "hasMorphTargets": false,
+        "hasSkins": true,
+        "hasTextures": false,
+        "hasDefaultScene": true,
+        "drawCallCount": 59,
+        "totalVertexCount": 34159,
+        "totalTriangleCount": 61666,
+        "maxUVs": 0,
+        "maxInfluences": 4,
+        "maxAttributes": 4
+    }
+}

@@ -1,5 +1,6 @@
 import "./style.css";
-import "./chapter-1";
+// import "./chapter-1";
+import "./chapter-2";
 
 // document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 //   <div>

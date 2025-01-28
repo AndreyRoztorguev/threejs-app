@@ -3,7 +3,7 @@ import { foreverPlane } from "./components/floor/foreverPlane";
 import { cubeMesh } from "./components/cube/cube";
 import { torusknotMesh } from "./components/torusknot/torusknot";
 import Stats from "three/examples/jsm/libs/stats.module.js";
-import { OrbitControls } from "three/examples/jsm/Addons.js";
+import { GLTFLoader, OrbitControls } from "three/examples/jsm/Addons.js";
 import GUI from "lil-gui";
 
 const scene = new THREE.Scene();
@@ -29,6 +29,24 @@ const props = {
 };
 gui.add(props, "cubeSpeed", -0.2, 0.2, 0.01);
 gui.add(props, "torusSpeed", -0.2, 0.2, 0.01);
+
+let porsche: any = null;
+
+const loader = new GLTFLoader();
+loader.load(
+  "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/BrainStem/glTF/BrainStem.gltf",
+  (loadedObject) => {
+    porsche = loadedObject.scene.children[0];
+    porsche.position.z = -2;
+    porsche.position.x = 0;
+    porsche.position.y = 0;
+    porsche.castShadow = true;
+    scene.add(porsche);
+  },
+  (xhr) => {
+    console.log((xhr.loaded / xhr.total) * 100 + "% loaded"); // Progress
+  }
+);
 
 // cube
 const cube = cubeMesh(scene);
@@ -66,6 +84,10 @@ function animate() {
 
   stats.update();
   orbitControls.update();
+  if (porsche) {
+    porsche.rotation.z += 0.01; // Rotate around the Y-axis
+    porsche.position.x = Math.cos(Date.now() * 0.001) * 2;
+  }
 
   renderer.render(scene, camera);
 }
